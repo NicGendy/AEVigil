@@ -93,5 +93,7 @@ Pastikan Anda telah menginstal manajer paket **[uv](https://docs.astral.sh/uv/)*
 
 ## 📜 Lisensi & Sitasi Dataset
 
-* Dataset **RT-IoT2022** berasal dari *UC Irvine Machine Learning Repository*: Sharmila, B. S., & Nagapadma, R. (2023). *RT-IoT2022* [Dataset]. https://doi.org/10.24432/C5P338
-* Kode sumber proyek ini didistribusikan di bawah lisensi MIT.
+* **Kode Sumber:** Seluruh kode sumber dalam repositori ini dilisensikan di bawah **MIT License**.
+* **Dataset:** Dataset **RT-IoT2022** berasal dari *UC Irvine Machine Learning Repository* dan dilisensikan di bawah [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org).
+  * **Sitasi:** S., B., & Nagapadma, R. (2023). *RT-IoT2022* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5P338
+  * **Catatan Modifikasi Data:** Berkas `data/sample_test_iot.csv` pada repositori ini merupakan cuplikan sampel terstratifikasi (2.000 baris) yang diekstrak dari dataset asli untuk keperluan demonstrasi aplikasi.
