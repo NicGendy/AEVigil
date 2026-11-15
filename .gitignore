@@ -1,0 +1,19 @@
+# Lingkungan Virtual & Cache Python
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Abaikan dataset mentah penuh, tetapi izinkan sampel demo Render
+data/RT-IoT2022.csv
+!data/sample_test_iot.csv
+
+# Izinkan bundel artefak tunggal untuk Render, abaikan berkas terpisah
+models/*.pth
+models/*.npy
+models/*.pkl
+!models/aevigil_bundle.joblib
+
+# Berkas Sistem
+.DS_Store
+Thumbs.db
