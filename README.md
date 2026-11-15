@@ -69,7 +69,7 @@ Pastikan Anda telah menginstal manajer paket **[uv](https://docs.astral.sh/uv/)*
 
 1. **Kloning Repositori**:
    ```bash
-   git clone [https://github.com/](https://github.com/)<username-github-anda>/AEVigil.git
+   git clone https://github.com/NicGendy/AEVigil
    cd AEVigil
    ```
 
@@ -89,20 +89,6 @@ Pastikan Anda telah menginstal manajer paket **[uv](https://docs.astral.sh/uv/)*
    uv run python -m ipykernel install --user --name aevigil --display-name "Python (AEVigil uv)"
    uv run jupyter lab
    ```
-
----
-
-## ☁️ Deployment ke Render (Free Tier CPU)
-
-Repositori ini telah dilengkapi berkas `render.yaml` dan `requirements-render.txt` (menggunakan indeks PyTorch CPU agar hemat memori di bawah batas 512 MB RAM Render):
-
-1. Unggah (*push*) repositori ini ke akun GitHub Anda.
-2. Masuk ke dasbor **[Render](https://dashboard.render.com/)**, pilih **New +** -> **Blueprint** (atau **Web Service**).
-3. Hubungkan repositori **AEVigil**.
-4. Jika menggunakan mode **Web Service** manual, isi pengaturan berikut:
-   * **Build Command**: `pip install --upgrade pip && pip install -r requirements-render.txt`
-   * **Start Command**: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true`
-
 ---
 
 ## 📜 Lisensi & Sitasi Dataset
