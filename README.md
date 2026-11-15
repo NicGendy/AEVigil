@@ -122,31 +122,21 @@ Pastikan manajer paket **[uv](https://docs.astral.sh/uv/)** sudah terpasang.
 ### 5. Tiga Skema Kalibrasi dan Empat Strategi Agregasi VRE
 
 - **Galat vektor per fitur ($L_1$)**: Mengukur selisih antara nilai asli dan hasil rekonstruksi untuk setiap fitur:
-  \[
-  E_{ij} = |x_{ij} - \hat{x}_{ij}|,\quad j \in \{1,\dots,92\}.
-  \]
+  $$E_{ij} = |x_{ij} - \hat{x}_{ij}|,\quad j \in \{1,\dots,92\}.$$
 
 - **Tiga skema kalibrasi ambang batas ($\theta_j$)**:
   1. `Percentile`: Menggunakan persentil ke-97 dari galat validasi untuk setiap fitur. Dengan demikian, 3% nilai galat tertinggi berada di atas ambang batas.
-     \[
-     \theta_j^{\text{perc}} = \text{Percentile}_{97}(E_{\cdot j}^{\text{val}})
-     \]
+     $$\theta_j^{\text{perc}} = \text{Percentile}_{97}(E_{\cdot j}^{\text{val}})$$
   2. `Statistical`: Menggunakan rata-rata dan simpangan baku galat pada data validasi normal.
-     \[
-     \theta_j^{\text{stat}} = \mu_j + 2{,}5\sigma_j
-     \]
+     $$\theta_j^{\text{stat}} = \mu_j + 2{,}5\sigma_j$$
   3. `Mixed`: Memilih nilai yang lebih besar antara ambang `Percentile` dan `Statistical`. Skema hibrida ini membantu mengurangi pengaruh pencilan ekstrem.
-     \[
-     \theta_j^{\text{mix}} = \max(\theta_j^{\text{perc}}, \theta_j^{\text{stat}})
-     \]
+     $$\theta_j^{\text{mix}} = \max(\theta_j^{\text{perc}}, \theta_j^{\text{stat}})$$
 
 - **Empat strategi agregasi keputusan**:
   1. `any`: Menandai sampel sebagai anomali jika setidaknya satu fitur melewati ambang batas. Strategi ini paling peka terhadap serangan yang hanya mengubah sedikit fitur. **Acc = 0,9950–0,9965**.
   2. `count`: Menandai sampel sebagai anomali jika setidaknya 10% fitur—atau 9 fitur—melewati ambang batas. **Acc = 0,9730–0,9929**.
   3. `weighted`: Menjumlahkan bobot fitur yang melewati ambang batas. Sampel ditandai sebagai anomali jika jumlah bobot mencapai `0,10`. Bobot berbanding terbalik dengan simpangan baku fitur ($w_j \propto 1/\sigma_j$).
-     \[
-     \sum w_j \mathbb{I}(E_{ij} > \theta_j) \ge 0{,}10
-     \]
+     $$\sum w_j \mathbb{I}(E_{ij} > \theta_j) \ge 0{,}10$$
      **Acc = 0,9749–0,9923**.
   4. `majority`: Menandai sampel sebagai anomali jika lebih dari 50% fitur—setidaknya 47 fitur—melewati ambang batas. Akurasinya lebih rendah karena serangan jarang mengubah lebih dari separuh atribut jaringan sekaligus. **Acc = 0,8217–0,9194**.
 
