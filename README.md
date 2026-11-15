@@ -127,14 +127,14 @@ Pastikan manajer paket **[uv](https://docs.astral.sh/uv/)** sudah terpasang.
 - **Tiga skema kalibrasi ambang batas ($\theta_j$)**:
   1. `Percentile`: Menggunakan persentil ke-97 dari galat validasi untuk setiap fitur. Dengan demikian, 3% nilai galat tertinggi berada di atas ambang batas.
 
-     $$\theta_j^{\text{perc}} = \text{Percentile}_{97}(E_{\cdot j}^{\text{val}})$$
+     $$\theta_{j}^{\mathrm{perc}} = \mathrm{Percentile}_{97}(E_{\cdot j}^{\mathrm{val}})$$
 
   2. `Statistical`: Menggunakan rata-rata dan simpangan baku galat pada data validasi normal.
 
      $$\theta_j^{\text{stat}} = \mu_j + 2{,}5\sigma_j$$
 
   3. `Mixed`: Memilih nilai yang lebih besar antara ambang `Percentile` dan `Statistical`. Skema hibrida ini membantu mengurangi pengaruh pencilan ekstrem.
-  
+
      $$\theta_j^{\text{mix}} = \max(\theta_j^{\text{perc}}, \theta_j^{\text{stat}})$$
 
 - **Empat strategi agregasi keputusan**:
